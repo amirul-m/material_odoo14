@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="material1" model="product.material">
+        <field name="code">M01</field>
+        <field name="name">Material 01</field>
+        <field name="type">fabric</field>
+        <field name="unit_price">101</field>
+        <field name="currency_id" ref="base.IDR" />
+        <field name="partner_id" ref="base.res_partner_12" />
+    </record>
+
+    <record id="material2" model="product.material">
+        <field name="code">M02</field>
+        <field name="name">Material 02</field>
+        <field name="type">jeans</field>
+        <field name="unit_price">102</field>
+        <field name="currency_id" ref="base.IDR" />
+        <field name="partner_id" ref="base.res_partner_12" />
+    </record>
+
+    <record id="material3" model="product.material">
+        <field name="code">M03</field>
+        <field name="name">Material 03</field>
+        <field name="type">cotton</field>
+        <field name="unit_price">103</field>
+        <field name="currency_id" ref="base.IDR" />
+        <field name="partner_id" ref="base.res_partner_12" />
+    </record>
+
+</odoo>

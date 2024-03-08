@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_material_action" model="ir.actions.act_window">
+        <field name="name">Material</field>
+        <field name="res_model">product.material</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p>No material found</p>
+        </field>
+    </record>
+
+    <record id="product_material_view_tree" model="ir.ui.view">
+        <field name="name">product.material.view.tree</field>
+        <field name="model">product.material</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="id" />
+                <field name="code" />
+                <field name="name" />
+                <field name="type" />
+                <field name="unit_price" />
+                <field name="partner_id" options="{'no_create': True}" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_material_view_search" model="ir.ui.view">
+        <field name="name">product.material.view.search</field>
+        <field name="model">product.material</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="code" />
+                <field name="name" />
+                <filter name="type_fabric" string="Fabric"
+                    domain="[('type', '=', 'fabric')]" />
+                <filter name="type_jeans" string="Jeans"
+                    domain="[('type', '=', 'jeans')]" />
+                <filter name="type_cotton" string="Cotton"
+                    domain="[('type', '=', 'cotton')]" />
+                <separator />
+                <group expand="0" string="Group By...">
+                    <filter name="groupby_type" string="Type"
+                        context="{'group_by': 'type'}" />
+                    <filter name="groupby_partner_id" string="Supplier"
+                        context="{'group_by': 'partner_id'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem
+        id="material_root_menu"
+        name="Material"
+        sequence="10" />
+
+    <menuitem
+        id="product_material_menu"
+        name="Material"
+        action="product_material_action"
+        parent="material_root_menu"
+        sequence="1" />
+</odoo>
